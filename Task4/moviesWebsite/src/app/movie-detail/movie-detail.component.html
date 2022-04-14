@@ -1,5 +1,6 @@
 <app-header></app-header>
-<div class="div det-container">
+<div class="div det-container" 
+[style.background-image]="'linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),url('+'https://www.themoviedb.org/t/p/original/'+movie.backdrop_path+')'">
 <div class="row m-4">
   <img class="col-1" src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/{{movie.poster_path}}" alt="">
   <div class="col">

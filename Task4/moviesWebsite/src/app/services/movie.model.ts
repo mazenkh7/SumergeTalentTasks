@@ -11,5 +11,6 @@ export class MovieModel{
   poster_path: string = '';
   runtime: number = 0;
   tagline: string = '';
+  backdrop_path: string ='';
   genres: {name: string, id: string}[] = [];
 }
