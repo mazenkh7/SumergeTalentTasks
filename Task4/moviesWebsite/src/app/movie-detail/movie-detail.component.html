@@ -1,4 +1,5 @@
 <app-header></app-header>
+<div class="div det-container">
 <div class="row m-4">
   <img class="col-1" src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/{{movie.poster_path}}" alt="">
   <div class="col">
@@ -19,6 +20,6 @@
       <h6 class="fw-light col-4" *ngFor="let genre of movie.genres">{{genre.name}}</h6>
     </div>
 
-
+  </div>
   </div>
 </div>

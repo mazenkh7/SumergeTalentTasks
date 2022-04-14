@@ -11,7 +11,7 @@ import {MovieModel} from "../services/movie.model";
 })
 export class MovieDetailComponent implements OnInit {
 
-  movieId = 0;
+  // movieId = 0;
   movie = new MovieModel();
   constructor(private route: ActivatedRoute, private catalogueService: CatalogueService, private loginService: LoginService,
               private router: Router) {
@@ -23,11 +23,12 @@ export class MovieDetailComponent implements OnInit {
       console.log("not logged")
       this.router.navigate(['']);
     }
-    // this.movie = this.catalogueService.currentMovieDetail;
-    // this.movieId = this.route.snapshot.params['id'];
-    // this.catalogueService.getMovieById(this.movieId).subscribe(r=>{
-    //   this.movie = r;
-    // });
+    if (this.movie.id==0){
+    let movieId = this.route.snapshot.params['id'];
+    this.catalogueService.getMovieById(movieId).subscribe(r=>{
+      this.movie = r;
+    });
+  }
   }
 
 }
