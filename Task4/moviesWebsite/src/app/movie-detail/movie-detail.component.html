@@ -1,0 +1,24 @@
+<app-header></app-header>
+<div class="row m-4">
+  <img class="col-1" src="https://www.themoviedb.org/t/p/w600_and_h900_bestv2/{{movie.poster_path}}" alt="">
+  <div class="col">
+
+    <h1 class="fw-bold col-12">{{movie.title}}</h1>
+
+    <h3 class="col-12 fw-light">Released: {{movie.release_date}}</h3>
+    <h3 class="col-12 fw-light">{{(movie.runtime-movie.runtime%60)/60}}h {{movie.runtime%60}}m -
+     User Score: {{movie.vote_average *10}}%</h3>
+
+    <h5 class="fw-light fst-italic">{{movie.tagline}}</h5>
+    <hr>
+    <h5>Overview</h5>
+    <h5 class="fw-light">{{movie.overview}}</h5>
+    <hr>
+    <h6>Genres</h6>
+    <div class="row col-12">
+      <h6 class="fw-light col-4" *ngFor="let genre of movie.genres">{{genre.name}}</h6>
+    </div>
+
+
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<form class="text-center mt-5" #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+  <img
+    class="mt-4"
+    src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_short-8e7b30f73a4020692ccca9c88bafe5dcb6f8a62a4c6bc55cd9ba82bb2cd95f6c.svg"
+    alt="TMDB Logo"
+    id="tmdb-logo">
+
+  <h1 class="h5 fw-normal mt-5">Login to see your list!</h1>
+  <input type="text" name="email" id="email" placeholder="Email address" class="mt-3 form-control"
+         autofocus required [(ngModel)]="email" email/>
+  <input type="password" name="password" id="password" placeholder="Password" class="mt-2 form-control" required [(ngModel)]="password" minlength="3"/>
+  <div class="checkbox mt-2">
+    <input type="checkbox" name="checkbox" id="checkbox" [(ngModel)]="checkBox" [defaultChecked]="false" >
+    <label for="checkbox">Stay logged in</label>
+  </div>
+  <div class="mt-2 d-grid col-12">
+    <input type="submit" class="login-button btn btn-lg" value="Log in" [disabled]="!loginForm.valid">
+  </div>
+  <div class="mt-2">
+    <a href="#">Forgot your password?</a>
+  </div>
+</form>

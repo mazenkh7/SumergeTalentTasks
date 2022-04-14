@@ -1,0 +1,8 @@
+<div class="card movie-card" style="" (click)="redirectToMovie(movie.id)"  >
+  <img class="card-img-top" src="https://www.themoviedb.org/t/p/w220_and_h330_face/{{movie.poster_path}}" alt="Card image cap">
+  <div class="card-body">
+    <h6 class="card-title fw-bold">{{movie.title}}</h6>
+    <h6 class="card-text">{{movie.release_date}}</h6>
+    <h6>{{movie.vote_average*10}}%</h6>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+.movie-card {
+  cursor: pointer;
+  width: 14rem;
+  height: 28rem;
+}
+
+h1{
+  text-overflow: ellipsis;
+}
