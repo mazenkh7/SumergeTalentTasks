@@ -21,6 +21,8 @@ const appRoutes: Routes = [
   // {path: 'details', component: MovieDetailComponent},
   {path: 'details/:id', component: MovieDetailComponent},
   {path: '404', component: NotFoundComponent},
+  { path: '**', pathMatch: 'full', 
+        component: NotFoundComponent }
 ];
 
 @NgModule({
