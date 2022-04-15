@@ -16,7 +16,7 @@ export class CatalogueComponent implements OnInit {
   constructor(private catalogueService: CatalogueService, private loginService: LoginService, private router: Router, private route: ActivatedRoute) {
 
   }
-
+  p = 1;
   page = {};
   movies: MovieModel[] = [];
 
@@ -26,14 +26,16 @@ export class CatalogueComponent implements OnInit {
       console.log("not logged")
       this.router.navigate(['']);
     }
-    let p = this.route.snapshot.params['page'];
-    if (p==null)
-      p=1;
-    this.catalogueService.getTopRated(Math.max(p,1)).subscribe(r => {
-      this.loginService.page = r;
-      this.loginService.movies = r['results'];
-      this.page = r;
-      this.movies = <MovieModel[]>r['results'];
+    this.route.params.subscribe(params=>{
+      this.p = params['page'] || 1;
+      this.catalogueService.getTopRated(Math.max(this.p,1)).subscribe(r => {
+        this.loginService.page = r;
+        this.loginService.movies = r['results'];
+        this.page = r;
+        this.movies = <MovieModel[]>r['results'];
+    });
+
+
 
       // console.log(this.movies);
     });

@@ -29,17 +29,11 @@ export class HeaderComponent implements OnInit {
     return this.loginService.page.page;
   }
 
-  redirectTo(uri:string){
-    this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=>
-      this.router.navigate([uri]));
-  }
-
-
   nextPage() {
     let p = this.loginService.page.page + 1;
     console.log(p)
     console.log('/toprated/'+this.loginService.page.page)
-    this.redirectTo('/toprated/'+p)
+    this.router.navigate(['/toprated/',p])
   }
 
   prevPage() {
@@ -48,6 +42,6 @@ export class HeaderComponent implements OnInit {
       return;
     console.log(p)
     console.log('/toprated/'+this.loginService.page.page)
-    this.redirectTo('/toprated/'+p)
+    this.router.navigate(['/toprated/',p])
   }
 }
