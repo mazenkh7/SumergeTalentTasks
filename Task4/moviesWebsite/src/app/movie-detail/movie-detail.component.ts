@@ -25,9 +25,14 @@ export class MovieDetailComponent implements OnInit {
     }
     if (this.movie.id==0){
     let movieId = this.route.snapshot.params['id'];
-    this.catalogueService.getMovieById(movieId).subscribe(r=>{
+    this.catalogueService.getMovieById(movieId).subscribe(
+      r=>{      
       this.movie = r;
-    });
+        },
+      e=>{
+        this.router.navigate(['/404']);
+      }
+        );
   }
   }
 

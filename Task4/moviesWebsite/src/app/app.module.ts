@@ -12,6 +12,7 @@ import {HeaderComponent} from './header/header.component';
 import {CatalogueService} from "./services/catalogue.service";
 import {LoginService} from "./services/login.service";
 import {RouterModule, Routes} from "@angular/router";
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const appRoutes: Routes = [
   {path: '', component: LoginComponent},
@@ -19,6 +20,7 @@ const appRoutes: Routes = [
   {path: 'toprated/:page', component: CatalogueComponent},
   // {path: 'details', component: MovieDetailComponent},
   {path: 'details/:id', component: MovieDetailComponent},
+  {path: '404', component: NotFoundComponent},
 ];
 
 @NgModule({
@@ -28,7 +30,8 @@ const appRoutes: Routes = [
     CatalogueComponent,
     MovieDetailComponent,
     MovieCardComponent,
-    HeaderComponent
+    HeaderComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
