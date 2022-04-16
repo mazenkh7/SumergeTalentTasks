@@ -13,3 +13,7 @@
 .page-change{
   cursor: pointer;
 }
+
+a{
+  cursor: pointer;
+}

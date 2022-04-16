@@ -29,6 +29,9 @@ export class CatalogueComponent implements OnInit {
         this.loginService.movies = r['results'];
         this.page = r;
         this.movies = <MovieModel[]>r['results'];
+    },
+    e=>{
+      this.router.navigate(['/404']);
     });
 
 
