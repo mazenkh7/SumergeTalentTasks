@@ -1,6 +1,7 @@
 # Features
 * Login / Logout + Stay signed in (fake - no backend)
 * Home page: top rated movies catalogue.
+* Use CanActivate / AuthGuard to prevent access without log in.
 * Cool looking movie details page when clicking on any movie.
 
 # To log in use the following dummy credentials:
