@@ -1,6 +1,11 @@
-To log in use the following dummy credentials:
-email: jojo@joestar.com
-passwprd: 123
+# Features
+* Login / Logout + Stay signed in (fake - no backend)
+* Home page: top rated movies catalogue.
+* Cool looking movie details page when clicking on any movie.
+
+# To log in use the following dummy credentials:
+* Email: jojo@joestar.com
+* Password: 123
 
 # MoviesWebsite
 
