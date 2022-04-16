@@ -19,10 +19,7 @@ export class MovieDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (!this.loginService.isLoggedIn){
-      console.log("not logged")
-      this.router.navigate(['']);
-    }
+
     if (this.movie.id==0){
     let movieId = this.route.snapshot.params['id'];
     this.catalogueService.getMovieById(movieId).subscribe(

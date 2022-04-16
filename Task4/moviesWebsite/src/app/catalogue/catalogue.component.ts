@@ -22,10 +22,6 @@ export class CatalogueComponent implements OnInit {
 
   ngOnInit(): void {
 
-    if (!this.loginService.isLoggedIn) {
-      console.log("not logged")
-      this.router.navigate(['']);
-    }
     this.route.params.subscribe(params=>{
       this.p = params['page'] || 1;
       this.catalogueService.getTopRated(Math.max(this.p,1)).subscribe(r => {
