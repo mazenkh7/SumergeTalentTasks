@@ -1,6 +1,11 @@
+import { HttpClient } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { ActivatedRoute, Router } from '@angular/router';
+import { LoginService } from '../services/login.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing'
+import { RouterTestingModule } from '@angular/router/testing'
 import { CatalogueComponent } from './catalogue.component';
+import { CatalogueService } from '../services/catalogue.service';
 
 describe('CatalogueComponent', () => {
   let component: CatalogueComponent;
@@ -8,16 +13,19 @@ describe('CatalogueComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CatalogueComponent ]
+      declarations: [CatalogueComponent],
+      imports: [HttpClientTestingModule, RouterTestingModule],
+      providers: [LoginService, CatalogueService,]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CatalogueComponent);
+    fixture = TestBed.createComponent(CatalogueComponent)
     component = fixture.componentInstance;
     fixture.detectChanges();
-  });
+  }
+  );
 
   it('should create', () => {
     expect(component).toBeTruthy();
