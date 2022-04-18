@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {CatalogueService} from "./services/catalogue.service";
 
 @Component({
   selector: 'app-root',
@@ -8,5 +9,5 @@ import { Component } from '@angular/core';
 export class AppComponent {
   constructor() {
   }
-  title = 'Movies DB';
+  title = 'Movies Website';
 }

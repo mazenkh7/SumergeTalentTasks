@@ -11,7 +11,9 @@ import {max} from "rxjs";
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private loginService: LoginService, private router: Router, private catalogueService: CatalogueService) { }
+  constructor(private loginService: LoginService,
+              private router: Router,
+              private catalogueService: CatalogueService) { }
 
   ngOnInit(): void {
   }
@@ -26,22 +28,19 @@ export class HeaderComponent implements OnInit {
   }
 
   getPageNumber(){
-    return this.loginService.page.page;
+    return this.catalogueService.page.page;
   }
 
   nextPage() {
-    let p = this.loginService.page.page + 1;
-    console.log(p)
-    console.log('/toprated/'+this.loginService.page.page)
+    let p = this.catalogueService.page.page + 1;
     this.router.navigate(['/toprated/',p])
   }
 
   prevPage() {
-    let p = this.loginService.page.page - 1;
+    // let p = this.loginService.page.page - 1;
+    let p = this.catalogueService.page.page - 1;
     if (p<1)
       return;
-    console.log(p)
-    console.log('/toprated/'+this.loginService.page.page)
     this.router.navigate(['/toprated/',p])
   }
 }

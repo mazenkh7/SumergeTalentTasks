@@ -17,9 +17,10 @@ export class MovieCardComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  redirectToMovie(id: number) {
-    this.catalogueService.getMovieById(id).subscribe(r=>{
-      this.loginService.currentMovieDetail = r;
+  redirectToMovieDetail(id: number) {
+    this.catalogueService.getMovieById(id).subscribe(response=>{
+      // this.loginService.currentMovieDetail = response;
+      this.catalogueService.currentMovieDetail = response;
       this.router.navigate(['/details/',id]);
     })
   }

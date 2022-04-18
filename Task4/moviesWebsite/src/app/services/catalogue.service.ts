@@ -1,4 +1,3 @@
-// import axios from "axios";
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {MoviePageModel} from "./movie-page.model";
@@ -9,6 +8,8 @@ import {MovieModel} from "./movie.model";
 export class CatalogueService {
 
   currentMovieDetail = new MovieModel();
+  page : MoviePageModel = new MoviePageModel();
+  movies : MovieModel[] = [];
 
   constructor(private http: HttpClient) {
   }
@@ -16,8 +17,6 @@ export class CatalogueService {
   API_KEY = "4864663166e4123ea3b715171990dabb";
   API = "https://api.themoviedb.org/3/movie/"
   API_lang = "&language=en-US"
-
-  // movies = [];
 
   getTopRated(page: number): Observable<MoviePageModel> {
     return this.http.get<MoviePageModel>(this.API + "top_rated?api_key=" + this.API_KEY + this.API_lang + "&page=" + page);

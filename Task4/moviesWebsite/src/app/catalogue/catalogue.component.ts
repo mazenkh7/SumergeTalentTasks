@@ -1,6 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {CatalogueService} from "../services/catalogue.service";
-import {delay} from "rxjs";
 import {MovieModel} from "../services/movie.model";
 import {LoginService} from "../services/login.service";
 import {ActivatedRoute, Route, Router} from "@angular/router";
@@ -13,32 +12,29 @@ import {ActivatedRoute, Route, Router} from "@angular/router";
 })
 export class CatalogueComponent implements OnInit {
 
-  constructor(private catalogueService: CatalogueService, private loginService: LoginService, private router: Router, private route: ActivatedRoute) {
-
+  constructor(private catalogueService: CatalogueService,
+              private loginService: LoginService,
+              private router: Router,
+              private route: ActivatedRoute) {
   }
-  p = 1;
-  page = {};
-  movies: MovieModel[] = [];
+
+  pageNumber = 1;
+  pageJSON = {};
+  moviesJSON: MovieModel[] = [];
 
   ngOnInit(): void {
-
-    this.route.params.subscribe(params=>{
-      this.p = params['page'] || 1;
-      this.catalogueService.getTopRated(Math.max(this.p,1)).subscribe(r => {
-        this.loginService.page = r;
-        this.loginService.movies = r['results'];
-        this.page = r;
-        this.movies = <MovieModel[]>r['results'];
-    },
-    e=>{
-      this.router.navigate(['/404']);
+    this.route.params.subscribe(params => {
+      this.pageNumber = params['page'] || 1;
+      this.catalogueService.getTopRated(Math.max(this.pageNumber, 1)).subscribe(r => {
+          this.catalogueService.page = r;
+          this.catalogueService.movies = r['results'];
+          this.pageJSON = r;
+          this.moviesJSON = <MovieModel[]>r['results'];
+        },
+        error => {
+          this.router.navigate(['/404']);
+        });
     });
-
-
-
-      // console.log(this.movies);
-    });
-    // console.log(this.page);
   }
 
 }

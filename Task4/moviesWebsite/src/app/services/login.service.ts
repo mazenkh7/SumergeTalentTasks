@@ -8,13 +8,11 @@ export class LoginService {
   users = [
     {email: 'jojo@joestar.com', password: '123'}
   ]
-  currentMovieDetail = new MovieModel();
-  page : MoviePageModel = new MoviePageModel();
-  movies : MovieModel[] = [];
 
   authAndLogIn(authData: { email: string, password: string, checkbox: boolean }): boolean {
-    let q = this.users.filter(user => user.email === authData.email && user.password === authData.password);
-    if (q[0]) {
+    // filter users array by email and password and save into a temp array
+    let filteredUsers = this.users.filter(user => user.email === authData.email && user.password === authData.password);
+    if (filteredUsers[0]) {// check if email/pass combination is present in user list for login.
       this.logIn(authData.checkbox);
       return true;
     }
@@ -30,6 +28,5 @@ export class LoginService {
   logOut() {
     this.isLoggedIn = false;
     localStorage.setItem("loggedIn", 'false');
-
   }
 }
