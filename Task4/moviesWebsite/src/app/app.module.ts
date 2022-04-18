@@ -14,16 +14,7 @@ import { LoginService } from "./services/login.service";
 import { RouterModule, Routes } from "@angular/router";
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AuthGuard } from './services/auth-guard.service';
-
-const appRoutes: Routes = [
-  { path: '', component: LoginComponent },
-  { path: 'toprated', canActivate: [AuthGuard], component: CatalogueComponent },
-  { path: 'toprated/:page', canActivate: [AuthGuard], component: CatalogueComponent },
-  { path: 'details', canActivate: [AuthGuard], component: MovieDetailComponent },
-  { path: 'details/:id', canActivate: [AuthGuard], component: MovieDetailComponent },
-  { path: '404', canActivate: [AuthGuard], component: NotFoundComponent },
-  { path: '**', pathMatch: 'full', component: NotFoundComponent }
-];
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -40,7 +31,7 @@ const appRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes)
+    AppRoutingModule
   ],
   providers: [CatalogueService, LoginService, AuthGuard],
   bootstrap: [AppComponent]
