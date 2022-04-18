@@ -11,7 +11,6 @@ import { MovieCardComponent } from './catalogue/movie-card/movie-card.component'
 import { HeaderComponent } from './header/header.component';
 import { CatalogueService } from "./services/catalogue.service";
 import { LoginService } from "./services/login.service";
-import { RouterModule, Routes } from "@angular/router";
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AuthGuard } from './services/auth-guard.service';
 import { AppRoutingModule } from './app-routing.module';
