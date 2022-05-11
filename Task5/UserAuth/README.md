@@ -1,4 +1,10 @@
 # BACKEND TASK
+* Maven project
+* Single endpoint API that authenticates a user
+* Uses Spring Boot - MongoDB - Swagger
+* Post request with body containing username and password to /auth to authenticate (use: "mazen" + "password" or "mazen2" + "password2" to authenticate).
+* Database containing users using MongoDB Atlas
+* Swagger Documentation and UI to allow ease of trying APIs
 
 ### Reference Documentation
 
